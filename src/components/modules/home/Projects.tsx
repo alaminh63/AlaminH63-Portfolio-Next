@@ -2,6 +2,7 @@
 import React from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { projectData } from '../../../data/project-data';
+import TitleHeader from '../Shared/TitleHeader';
 interface ProjectProps {
     id: number;
     title: string;
@@ -33,14 +34,7 @@ export default function Projects() {
 
     return (
         <div className="py-16 bg-white min-h-screen">
-            <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold mb-4 text-gray-800">
-                    Top Ranked Projects
-                </h2>
-                <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-                    Here are my top 3 ranked projects that showcase my best work and expertise.
-                </p>
-            </div>
+            <TitleHeader title="Portfolio" subtitle="Some of my featured projects" />
 
             <div className="max-w-6xl mx-auto space-y-8">
                 {topProjects.map((project: ProjectProps) => (
@@ -53,7 +47,7 @@ export default function Projects() {
                                 src={project.image}
                                 alt={project.title}
                                 className="w-full h-48 object-cover rounded-lg"
-                               
+
                             />
                         </div>
                         <div className="md:w-2/3 flex flex-col justify-between p-6">
