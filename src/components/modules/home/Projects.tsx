@@ -9,8 +9,8 @@ interface ProjectProps {
     title: string;
     description: string;
     longDescription: string;
-    githubLink: string;
-    liveLink?: string;
+    githubLink?: string | null;
+    liveLink?: string | null;
     technologies: string[];
     image: string;
     features: string[];
@@ -25,7 +25,12 @@ interface ProjectProps {
 export default function Projects() {
     // Sort projects by rank and get top 3
     const topProjects: ProjectProps[] = [...projectData]
-        .sort((a, b) => a.rank - b.rank)
+        .map(project => ({
+            ...project,
+            category: project.category as 'Web' | 'Mobile' | 'Backend' | 'Data Science',
+            rank: project.rank ?? Infinity // Assign default rank for null values
+        }))
+        .sort((a, b) => (a.rank || 0) - (b.rank || 0))
         .slice(0, 3);
 
     return (
@@ -90,7 +95,7 @@ export default function Projects() {
                             </div>
                             <div className="flex space-x-4 mt-6">
                                 <a
-                                    href={project.githubLink}
+                                    href={project.githubLink || '#'}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="px-4 py-2 rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors duration-200 flex items-center gap-2"
@@ -99,7 +104,7 @@ export default function Projects() {
                                 </a>
                                 {project.liveLink && (
                                     <a
-                                        href={project.liveLink}
+                                        href={project.liveLink || '#'}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-200 flex items-center gap-2"

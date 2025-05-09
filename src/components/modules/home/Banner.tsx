@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image';
 import React from 'react';
 
 export default function Banner() {
@@ -15,7 +16,7 @@ export default function Banner() {
             }}
         >
             <div className="w-48 h-48 mb-8 relative">
-                <img
+                <Image
                     src="/path/to/profile-picture.jpg"
                     alt="Profile Picture"
                     className="w-full h-full rounded-full shadow-2xl"
