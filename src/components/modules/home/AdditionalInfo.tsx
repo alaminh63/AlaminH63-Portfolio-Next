@@ -96,7 +96,7 @@ export default function AdditionalInfo() {
                                     width={640} // Specify width
                                     height={360} // Specify height
                                     className="object-cover w-full h-full"
-                                    priority // Preload the image
+
                                 />
                             </div>
                         </div>
