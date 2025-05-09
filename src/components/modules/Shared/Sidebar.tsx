@@ -1,4 +1,4 @@
-import Image from "next/image";
+ 
 import { FaHome, FaUser, FaBriefcase, FaBlog, FaEnvelope } from "react-icons/fa";
 
 const menuItems = [

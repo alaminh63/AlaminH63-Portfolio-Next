@@ -1,7 +1,8 @@
- 'use client'
+'use client'
 import React from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { projectData } from '../../../data/project-data';
+import Image from 'next/image';
 
 interface ProjectProps {
     id: number;
@@ -45,7 +46,7 @@ export default function Projects() {
                         className="bg-white rounded-lg shadow-md p-6 mb-8 flex flex-col md:flex-row items-stretch hover:shadow-lg transition-shadow duration-300"
                     >
                         <div className="md:w-1/3 flex items-center justify-center p-4">
-                            <img
+                            <Image
                                 src={project.image}
                                 alt={project.title}
                                 className="w-full h-48 object-cover rounded-lg"
@@ -57,7 +58,7 @@ export default function Projects() {
                                     <h3 className="text-2xl font-bold text-gray-800">
                                         {project.title}
                                     </h3>
-                                   
+
                                 </div>
                                 <p className="text-gray-600 mb-4">
                                     {project.description}
