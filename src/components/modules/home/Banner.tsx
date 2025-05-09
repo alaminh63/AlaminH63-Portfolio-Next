@@ -1,46 +1,72 @@
 'use client'
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import React from 'react';
 
 export default function Banner() {
+    const [scrollY, setScrollY] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <div
-            className="flex flex-col h-screen items-center justify-center bg-gradient-to-b from-blue-500 via-indigo-500 to-purple-500"
-            style={{
-                backgroundSize: 'cover',
-                backgroundImage: 'url(https://images.unsplash.com/photo-1531297484001-80022131f5a1?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M1BQZKqdp2CV3QV5nUEsqSg1ygegLmqRygjlbnwwfHwwfHx8MA%3D%3D)',
-                backgroundAttachment: 'fixed',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                backgroundBlendMode: 'overlay',
-            }}
+        <section
+            className="relative flex flex-col items-center justify-center min-h-screen bg-[#111312] px-4 overflow-hidden"
         >
-            <div className="w-48 h-48 mb-8 relative">
-                <Image
-                    src="/path/to/profile-picture.jpg"
-                    alt="Profile Picture"
-                    className="w-full h-full rounded-full shadow-2xl"
-                    style={{
-                        boxShadow: '20px 20px 60px rgba(0, 0, 0, 0.1), -20px -20px 60px rgba(255, 255, 255, 0.5)',
-                    }}
-                />
-            </div>
-            <h1 className="text-6xl font-extrabold mb-4 text-white" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)' }}>
-                John Doe
-            </h1>
-            <h2 className="text-4xl mb-6 text-white" style={{ textShadow: '1px 1px 3px rgba(0, 0, 0, 0.2)' }}>
-                Full Stack Developer
-            </h2>
-            <a
-                href="/path/to/resume.pdf"
-                download
-                className="bg-white text-indigo-500 px-8 py-4 rounded-full shadow-lg hover:bg-gray-200 transition-transform transform hover:scale-105"
+            {/* Background with Parallax */}
+            <div
+                className="absolute inset-0 z-0 opacity-20"
                 style={{
-                    boxShadow: '10px 10px 20px rgba(0, 0, 0, 0.1), -10px -10px 20px rgba(255, 255, 255, 0.5)',
+                    transform: `translateY(${scrollY * 0.5}px)`,
+                    transition: 'transform 0.1s ease-out'
                 }}
             >
-                Download Resume
-            </a>
-        </div>
+                <img
+                    src="https://www.shutterstock.com/shutterstock/videos/3606751217/thumb/1.jpg?ip=x480"
+                    alt="Background Pattern"
+                    className="w-full h-full object-cover"
+                />
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10 flex flex-col items-center justify-center text-center">
+                <div className="relative w-44 h-44 mb-8 rounded-full overflow-hidden border-4 border-[#23272b]">
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhpxEMeqEMP2Ly9y5E7PmEYf6NXPrjdggylw&s"
+                        alt="profile"
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                </div>
+                <div className="flex gap-3 mb-4 justify-center">
+                    <span className="bg-white  px-4 py-1 rounded-full text-xs font-medium tracking-wide">Programmer</span>
+                    <span className="bg-white  px-4 py-1 rounded-full text-xs font-medium tracking-wide">Software Developer</span>
+                    <span className="bg-white  px-4 py-1 rounded-full text-xs font-medium tracking-wide">Problem Solver</span>
+                </div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2 text-center">
+                    <span className="text-[#e5e7eb]">MD Al Amin Hasan</span>
+                </h1>
+                <h2 className="text-base md:text-xl text-gray-300 font-medium mb-4 text-center">
+                    Full-Stack Software Developer from Bangladesh
+                </h2>
+                <p className="text-gray-400 text-sm md:text-base max-w-xl text-center mb-8">
+                    Passionate about building innovative solutions and solving complex problems to create impactful digital experiences.
+                </p>
+                <div className="flex justify-center">
+                    <a
+                        href="#contact"
+                        className="bg-white text-black px-6 py-2 rounded-full font-semibold shadow hover:bg-[#35393e] transition-colors duration-200"
+                    >
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+        </section>
     );
 }

@@ -51,10 +51,11 @@ export default function Projects() {
                         className="bg-white rounded-lg shadow-md p-6 mb-8 flex flex-col md:flex-row items-stretch hover:shadow-lg transition-shadow duration-300"
                     >
                         <div className="md:w-1/3 flex items-center justify-center p-4">
-                            <Image
+                            <img
                                 src={project.image}
                                 alt={project.title}
                                 className="w-full h-48 object-cover rounded-lg"
+                               
                             />
                         </div>
                         <div className="md:w-2/3 flex flex-col justify-between p-6">

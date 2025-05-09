@@ -10,10 +10,10 @@ interface StatCardProps {
 }
 
 const StatCard: React.FC<StatCardProps> = ({ icon, title, description }) => (
-    <div className="bg-slate-50 rounded-xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-slate-200 hover:shadow-[0_4px_25px_rgba(0,0,0,0.1)] transition-all duration-300">
-        <div className="text-emerald-500 text-2xl mb-4">{icon}</div>
-        <h3 className="text-lg font-semibold text-slate-800 mb-2">{title}</h3>
-        <p className="text-slate-600 text-sm leading-relaxed">{description}</p>
+    <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+        <div className="text-indigo-500 text-3xl mb-4">{icon}</div> {/* Subtle Indigo Accent */}
+        <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
+        <p className="text-gray-600 text-base leading-relaxed">{description}</p>
     </div>
 );
 
@@ -22,38 +22,38 @@ export default function AdditionalInfo() {
         {
             icon: <FaUsers />,
             title: "Personal Development",
-            description: "Dedicated to continuous learning and growth in software development and emerging technologies."
+            description: "Continuous learning and growth in software development and emerging technologies are my priorities."
         },
         {
             icon: <FaChartLine />,
             title: "Technical Excellence",
-            description: "Committed to writing clean, efficient code and following best practices in software development."
+            description: "I'm committed to writing clean, efficient, and well-documented code, adhering to best practices."
         },
         {
             icon: <FaLightbulb />,
-            title: "Problem Solving",
-            description: "Passionate about finding innovative solutions to complex technical challenges."
+            title: "Innovative Problem Solving",
+            description: "Passionate about devising innovative solutions to complex technical challenges, driving progress."
         },
         {
             icon: <FaRocket />,
-            title: "Career Growth",
-            description: "Focused on advancing my career through meaningful projects and continuous improvement."
+            title: "Career Advancement",
+            description: "I'm focused on advancing my career through impactful projects and continuous self-improvement."
         }
     ];
 
     return (
-        <section className="py-20 bg-gradient-to-b from-slate-50 to-white">
+        <section className="py-24 bg-gray-50"> {/* Light Gray Background */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-slate-900 mb-4">
+                <div className="text-center mb-20">
+                    <h2 className="text-5xl font-extrabold text-gray-900 mb-6 tracking-tight"> {/* Stronger Heading */}
                         My Professional Journey
                     </h2>
-                    <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-                        I am passionate about creating efficient, scalable solutions while continuously learning and growing as a developer.
+                    <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed"> {/* Improved Readability */}
+                        I am dedicated to crafting efficient, scalable solutions while constantly learning and evolving as a developer. My focus extends to creating user-centric and accessible web experiences.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"> {/* Increased Spacing */}
                     {stats.map((stat, index) => (
                         <StatCard
                             key={index}
@@ -64,35 +64,39 @@ export default function AdditionalInfo() {
                     ))}
                 </div>
 
-                <div className="mt-20 bg-emerald-50 rounded-2xl p-8 md:p-12">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="mt-24 bg-indigo-50 rounded-3xl p-10 md:p-16"> {/* Indigo Accent Container */}
+                    <div className="grid md:grid-cols-2 gap-16 items-center">
                         <div>
-                            <h3 className="text-2xl font-bold text-slate-900 mb-4">
-                                My Development Approach
+                            <h3 className="text-3xl font-bold text-gray-900 mb-6"> {/* Stronger Subheading */}
+                                Development Philosophy
                             </h3>
-                            <p className="text-slate-600 mb-6">
-                                I focus on writing clean, maintainable code while following best practices and design patterns. My development process emphasizes quality, efficiency, and continuous learning.
+                            <p className="text-gray-700 mb-8 leading-relaxed"> {/* Improved Readability */}
+                                I believe in writing modular, well-tested code that is easy to understand and maintain. My development process emphasizes collaboration, continuous integration, and a relentless pursuit of quality.
                             </p>
-                            <ul className="space-y-3">
+                            <ul className="space-y-4"> {/* Increased Spacing */}
                                 {[
-                                    "Clean Code Principles",
-                                    "Test-Driven Development",
-                                    "Code Review & Documentation",
-                                    "Performance Optimization"
+                                    "Clean Code Architecture",
+                                    "Test-Driven Development (TDD)",
+                                    "Comprehensive Code Reviews",
+                                    "Performance and Accessibility Optimization",
+                                    "Agile Development Methodologies"
                                 ].map((item, index) => (
-                                    <li key={index} className="flex items-center text-slate-700">
-                                        <span className="w-2 h-2 bg-emerald-500 rounded-full mr-3"></span>
+                                    <li key={index} className="flex items-center text-gray-700 text-lg"> {/* Increased Text Size */}
+                                        <span className="w-3 h-3 bg-indigo-500 rounded-full mr-4"></span> {/* Indigo Accent Bullet */}
                                         {item}
                                     </li>
                                 ))}
                             </ul>
                         </div>
-                        <div className="relative">
-                            <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-xl">
-                                <Image
+                        <div className="relative rounded-3xl overflow-hidden shadow-xl">
+                            <div className="aspect-w-16 aspect-h-9">
+                                <img
                                     src="/images/coding-workstation.jpg"
                                     alt="Development Environment"
+                                    width={640} // Specify width
+                                    height={360} // Specify height
                                     className="object-cover w-full h-full"
+                                    priority // Preload the image
                                 />
                             </div>
                         </div>

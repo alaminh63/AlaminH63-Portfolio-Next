@@ -10,7 +10,7 @@ export default function Skills() {
             <h2 className="text-3xl font-bold mb-6">My Skill</h2>
             <div className="flex space-x-6 mb-6">
                 {skills.map((skill, index) => (
-                    <Image
+                    <img
                         key={index}
                         src={skill.image}
                         alt={skill.name}
