@@ -2,8 +2,6 @@
 import React from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { projectData } from '../../../data/project-data';
-import Image from 'next/image';
-
 interface ProjectProps {
     id: number;
     title: string;

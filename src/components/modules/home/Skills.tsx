@@ -1,5 +1,5 @@
 import { skills } from '@/data/home-data';
-import Image from 'next/image';
+
 import React from 'react';
 
 
