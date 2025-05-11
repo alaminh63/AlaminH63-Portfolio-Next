@@ -8,6 +8,7 @@ interface BlogPost {
     title: string;
     date: string;
     image: string;
+    link: string;
 }
 
 export default function BlogsOverview() {

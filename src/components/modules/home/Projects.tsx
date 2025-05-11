@@ -94,7 +94,7 @@ export default function Projects() {
                 />
 
                 <div className="mx-auto flex flex-col gap-16">
-                    {topProjects.map((project: ProjectProps, idx) => (
+                    {topProjects.map((project: ProjectProps) => (
                         <div
                             key={project.id}
                             className="flex rounded-xl flex-col md:flex-row items-stretch bg-transparent overflow-hidden"

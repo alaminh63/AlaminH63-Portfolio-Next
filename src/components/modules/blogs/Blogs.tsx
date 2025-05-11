@@ -1,7 +1,7 @@
 
 import { blogsData } from '@/data/blogs-data';
-import TitleHeader from '../Shared/TitleHeader';
-import Link from 'next/link';
+import Image from 'next/image';
+
 
 interface BlogPost {
     id: number;
@@ -13,7 +13,7 @@ interface BlogPost {
 export default function Blogs() {
     return (
         <div>
-          
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
                 {blogsData.map((post: BlogPost) => (
                     <div
@@ -21,7 +21,7 @@ export default function Blogs() {
                         className="bg-white shadow-lg overflow-hidden border-2 border-gray-200 hover:shadow-xl transition-all duration-300"
                     >
                         <div className="relative h-48">
-                            <img
+                            <Image
                                 src={post.image}
                                 alt={post.title}
                                 className="w-full h-full object-cover"
@@ -39,7 +39,7 @@ export default function Blogs() {
                     </div>
                 ))}
             </div>
-            
+
         </div>
     );
 }

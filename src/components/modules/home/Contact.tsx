@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react";
 import {
-  FaPaperPlane,
+ 
   FaEnvelope,
   FaPhoneAlt,
   FaGlobe,
@@ -87,7 +87,7 @@ export default function Contact() {
         </div>
       </div>
       <div className={rightPanel}>
-        <h2 className="text-2xl font-bold mb-4">Let's Get In Touch</h2>
+        <h2 className="text-2xl font-bold mb-4">Get In Touch</h2>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4" autoComplete="off">
           <input
             type="text"

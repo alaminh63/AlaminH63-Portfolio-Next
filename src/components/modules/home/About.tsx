@@ -4,9 +4,7 @@ import {
   FaJsSquare,
   FaReact,
   FaNodeJs,
-  FaAws,
-  FaEnvelope,
-  FaFileDownload,
+
   FaGithub,
   FaLinkedin,
   FaNode,

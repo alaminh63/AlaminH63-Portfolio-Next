@@ -4,6 +4,8 @@ import { useParams } from "next/navigation";
 import { projectData } from "@/data/project-data";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import SecondaryBanner from "@/components/modules/Shared/SecondaryBanner";
+import Link from "next/link";
+import Image from "next/image";
 export default function ProjectDetails() {
     const { projectId } = useParams();
 
@@ -24,7 +26,7 @@ export default function ProjectDetails() {
                     </button>
                 </div>
 
-                <img src={project.image} alt={project.title} className="w-full h-80 object-cover mb-6 rounded-lg shadow-lg" />
+                <Image src={project.image} alt={project.title} className="w-full h-80 object-cover mb-6 rounded-lg shadow-lg" />
                 <p className="text-xl mb-6 leading-relaxed">{project.longDescription}</p>
 
                 <div className="mb-6">
@@ -67,14 +69,14 @@ export default function ProjectDetails() {
 
                 <div className="flex items-center gap-4 mt-8">
                     {project.githubLink && !project.isPrivate && (
-                        <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="flex items-center text-blue-500 hover:text-blue-700 transition">
+                        <Link href={project.githubLink} target="_blank" rel="noopener noreferrer" className="flex items-center text-blue-500 hover:text-blue-700 transition">
                             <FaGithub className="mr-1" /> View on GitHub
-                        </a>
+                        </Link>
                     )}
                     {project.liveLink && (
-                        <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="flex items-center text-blue-500 hover:text-blue-700 transition">
+                        <Link href={project.liveLink} target="_blank" rel="noopener noreferrer" className="flex items-center text-blue-500 hover:text-blue-700 transition">
                             <FaExternalLinkAlt className="mr-1" /> Live Demo
-                        </a>
+                        </Link>
                     )}
                 </div>
             </div>
