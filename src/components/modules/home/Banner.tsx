@@ -1,7 +1,11 @@
 'use client'
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import profile from '@/assets/user/profile.png'
+import { FaFacebook, FaLinkedin } from 'react-icons/fa';
 
-
+import { FaGithub } from 'react-icons/fa';
+import Link from 'next/link';
 export default function Banner() {
     const [scrollY, setScrollY] = useState(0);
 
@@ -36,8 +40,8 @@ export default function Banner() {
             {/* Content */}
             <div className="relative z-10 flex flex-col items-center justify-center text-center">
                 <div className="relative w-44 h-44 mb-8 rounded-full overflow-hidden border-4 border-[#23272b]">
-                    <img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhpxEMeqEMP2Ly9y5E7PmEYf6NXPrjdggylw&s"
+                    <Image
+                        src={profile}
                         alt="profile"
                         fill
                         className="object-cover"
@@ -55,9 +59,17 @@ export default function Banner() {
                 <h2 className="text-base md:text-xl text-gray-300 font-medium mb-4 text-center">
                     Full-Stack Software Developer from Bangladesh
                 </h2>
-                <p className="text-gray-400 text-sm md:text-base max-w-xl text-center mb-8">
-                    Passionate about building innovative solutions and solving complex problems to create impactful digital experiences.
-                </p>
+                <div className="flex justify-center gap-4 mb-8">
+                    <Link href="https://github.com/alaminh63" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white transition-colors duration-200">
+                        <FaGithub className="text-4xl" />
+                    </Link>
+                    <Link href="https://www.linkedin.com/in/alaminh63/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white transition-colors duration-200">
+                        <FaLinkedin className="text-4xl" />
+                    </Link>
+                    <Link href="https://www.facebook.com/alaminh63.in" target="_blank" rel="noopener noreferrer" className="text-white hover:text-white transition-colors duration-200">
+                        <FaFacebook className="text-4xl" />
+                    </Link>
+                </div>
                 <div className="flex justify-center">
                     <a
                         href="#contact"
